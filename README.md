@@ -61,3 +61,10 @@ The standalone usable resources are
 And then some internal resources that are of no concern for standalone users or consumers
 
 * `POST /oauth/authorize/decision`, processes the allow / deny
+
+NSIP modifications
+===
+
+Copy config/local.json.dist to config/local.json and set the MySQL properties
+appropriately. Information on the schema is in oauth.sql.
+

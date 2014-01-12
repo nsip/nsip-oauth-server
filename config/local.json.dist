@@ -1,0 +1,6 @@
+{
+    "mysql_user": "nsip",
+    "mysql_password": "12345",
+    "mysql_host": "nsip.test",
+    "mysql_database": "oauth"
+}
