@@ -11,6 +11,7 @@
     "passport-http-bearer": "0.2.x",
     "passport-oauth2-client-password": "0.1.x",
     "connect-ensure-login": "0.1.x",
-    "mysql": "2.0.0"
+    "mysql": "2.0.0",
+    "convict": "0.1.0"
   }
 }

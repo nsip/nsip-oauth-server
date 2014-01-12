@@ -172,11 +172,7 @@ exports.authorization = [
   login.ensureLoggedIn(),
   server.authorization(function(clientID, redirectURI, done) {
     db.clients.findByClientId(clientID, function(err, client) {
-      if (err) { return done(err); }
-      // WARNING: For security purposes, it is highly advisable to check that
-      //          redirectURI provided by the client matches one registered with
-      //          the server.  For simplicity, this example does not.  You have
-      //          been warned.
+      if (err || client.redirectURI !== redirectURI) { return done(err); }
       return done(null, client, redirectURI);
     });
   }),

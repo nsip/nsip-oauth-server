@@ -1,25 +1,24 @@
-var clients = [
-    { id: '1', name: 'Samplr', clientId: 'abc123', clientSecret: 'ssh-secret' },
-    { id: '2', name: 'Samplr2', clientId: 'xyz123', clientSecret: 'ssh-password' }
-];
-
-
-exports.find = function(id, done) {
-  for (var i = 0, len = clients.length; i < len; i++) {
-    var client = clients[i];
-    if (client.id === id) {
-      return done(null, client);
-    }
-  }
-  return done(null, null);
-};
+var db = require('./db');
 
 exports.findByClientId = function(clientId, done) {
-  for (var i = 0, len = clients.length; i < len; i++) {
-    var client = clients[i];
-    if (client.clientId === clientId) {
-      return done(null, client);
-    }
-  }
-  return done(null, null);
+    db(function(c) {
+        c.query('SELECT client_id, client_secret, redirect_uri FROM oauth_clients WHERE ' +
+                'client_id = ?', [clientId], function(err, result) {
+                    if (err || !result) {
+                        done(err, false);
+                    } else {
+                        var client = {
+                            id:           clientId,
+                            name:         clientId,
+                            clientId:     result[0].client_id,
+                            clientSecret: result[0].client_secret,
+                            redirectURI:  result[0].redirect_uri
+                        };
+                        done(false, client);
+                    }
+                });
+    });
 };
+
+exports.find = exports.findByClientId;
+
