@@ -1,7 +1,7 @@
 oauth2orize: oauth2 provider example
 ===
 
-****RETIRED****
+****DEPRECATED (RETIRED)****
 
 This example shows a provider which grants tokens in exchange for codes for
 
