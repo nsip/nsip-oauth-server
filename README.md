@@ -2,6 +2,7 @@ oauth2orize: oauth2 provider example
 ===
 
 ****DEPRECATED (RETIRED)****
+*This repository is now retired, achived and no longer maintained - note particularly that security updates are NO LONGER being performed.* 
 
 This example shows a provider which grants tokens in exchange for codes for
 
